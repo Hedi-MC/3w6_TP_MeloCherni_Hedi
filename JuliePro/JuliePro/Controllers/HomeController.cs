@@ -1,6 +1,6 @@
-using System.Diagnostics;
-using JuliePro.Models;
+﻿using JuliePro.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace JuliePro.Controllers
 {
