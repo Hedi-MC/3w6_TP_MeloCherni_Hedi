@@ -1,0 +1,69 @@
+﻿@model JuliePro.Models.ViewModels.TrainerVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Trainer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Trainer.FirstName" class="control-label"></label>
+                <input asp-for="Trainer.FirstName" class="form-control" />
+                <span asp-validation-for="Trainer.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Trainer.LastName" class="control-label"></label>
+                <input asp-for="Trainer.LastName" class="form-control" />
+                <span asp-validation-for="Trainer.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Trainer.Email" class="control-label"></label>
+                <input asp-for="Trainer.Email" class="form-control" />
+                <span asp-validation-for="Trainer.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Trainer.Photo" class="control-label"></label>
+                <input asp-for="Trainer.Photo" class="form-control" />
+                <span asp-validation-for="Trainer.Photo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Trainer.SpecialityId" class="control-label">Spécialité</label>
+                <select class="form-control form-select show-tick" data-style="btn-primary" asp-for="@Model.Trainer.SpecialityId" asp-items="@Model.SpecialitiesSelectList">
+                    <option disabled selected>--Select Speciality--</option>
+                </select>
+                <br />
+                <span asp-validation-for="@Model.Trainer.SpecialityId" class="text-danger"></span>
+
+                @*
+                <label asp-for="Trainer.SpecialityId" class="control-label"></label>
+                <input asp-for="Trainer.SpecialityId" class="form-control" />
+                <span asp-validation-for="Trainer.SpecialityId" class="text-danger"></span>*@
+
+
+
+                @*<label asp-for="Trainer.Speciality" class="control-label"></label>
+                <input asp-for="Trainer.SpecialityId" class="form-control" />*@
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

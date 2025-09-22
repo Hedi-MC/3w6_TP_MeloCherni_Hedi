@@ -3,6 +3,7 @@ using JuliePro.Models.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JuliePro.Migrations
 {
     [DbContext(typeof(JulieProDbContext))]
-    partial class JulieProDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250922192951_Trainers")]
+    partial class Trainers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -166,17 +169,12 @@ namespace JuliePro.Migrations
             modelBuilder.Entity("JuliePro.Models.Trainer", b =>
                 {
                     b.HasOne("JuliePro.Models.Speciality", "Speciality")
-                        .WithMany("Trainers")
+                        .WithMany()
                         .HasForeignKey("SpecialityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Speciality");
-                });
-
-            modelBuilder.Entity("JuliePro.Models.Speciality", b =>
-                {
-                    b.Navigation("Trainers");
                 });
 #pragma warning restore 612, 618
         }

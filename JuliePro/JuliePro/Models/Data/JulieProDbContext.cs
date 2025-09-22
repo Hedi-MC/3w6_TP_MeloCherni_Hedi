@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using JuliePro.Models;
 
 namespace JuliePro.Models.Data
 {
@@ -11,6 +12,7 @@ namespace JuliePro.Models.Data
         }
 
         public DbSet<Speciality> Specialities { get; set; }
+        public DbSet<Trainer> Trainer { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -21,6 +23,7 @@ namespace JuliePro.Models.Data
             modelBuilder.GenerateData();
                 
         }
+        
 
     }
 }
