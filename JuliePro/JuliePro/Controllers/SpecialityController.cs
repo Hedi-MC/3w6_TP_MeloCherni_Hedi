@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using JuliePro.Models;
 using JuliePro.Models.Data;
+using JuliePro.Migrations;
 
 namespace JuliePro.Controllers
 {
@@ -22,9 +23,25 @@ namespace JuliePro.Controllers
         // GET: Speciality
         public async Task<IActionResult> Index()
         {
-              return _context.Specialities != null ? 
-                          View(await _context.Specialities.ToListAsync()) :
-                          Problem("Entity set 'JulieProDbContext.Specialities'  is null.");
+            List<Trainer> listTrainers = new List<Trainer>();
+
+            listTrainers = _context.Trainer.Include("Speciality").ToList();
+
+            List<Speciality> listSpecialities = new List<Speciality>();
+
+            listSpecialities = _context.Specialities.ToList();
+
+            foreach (Speciality speciality in listSpecialities)
+            {
+                speciality.Trainers=listTrainers.Where(trainer => trainer.SpecialityId == speciality.Id).OrderBy(a => a.FirstName).ToList();
+            }
+
+
+
+            listSpecialities = listSpecialities.OrderBy(a => a.Name).ToList();
+
+            //à voir si on doit order par les premières lettres ou pas.
+            return View(listSpecialities);
         }
 
         

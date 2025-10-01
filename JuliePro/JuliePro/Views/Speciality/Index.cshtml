@@ -26,6 +26,14 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
+                    @foreach (Trainer trainer in item.Trainers)
+                    {
+                        String name = trainer.FirstName + " " + trainer.LastName + ", ";
+                        <a asp-controller="Trainer" asp-action="Edit" asp-route-id="@trainer.Id">@name</a>
+                    }
+            </td>
+
+            <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
