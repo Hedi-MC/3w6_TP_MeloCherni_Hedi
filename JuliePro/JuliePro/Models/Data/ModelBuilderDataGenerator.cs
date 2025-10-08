@@ -22,6 +22,32 @@ namespace JuliePro.Models.Data
             builder.Entity<Trainer>().HasData(new Trainer() { Id = 6, FirstName = "Karine", LastName = "Lachance", Email = "Karine.Lachance@juliepro.ca", SpecialityId = 2, Photo = "Karine.png" });
             builder.Entity<Trainer>().HasData(new Trainer() { Id = 7, FirstName = "Ramone", LastName = "Esteban", Email = "Ramone.Esteban@juliepro.ca", SpecialityId = 3, Photo = "Ramone.png" });
 
+            //Ajout de Seeds Customer
+            builder.Entity<Customer>().HasData(new Customer() { Id = 1, FirstName = "Alexandre", LastName = "Vigneault", BirthDate = new DateTime(2003, 3, 15), Email = "AdeptInformatique@gmail.com", TrainerId = 1, StartWeight = 140 });
+            builder.Entity<Customer>().HasData(new Customer() { Id = 2, FirstName = "Julien", LastName = "Blitzer", BirthDate = new DateTime(2004, 11, 2), Email = "Umamusume@gamer.org", TrainerId = 1, StartWeight = 290 });
+            builder.Entity<Customer>().HasData(new Customer() { Id = 3, FirstName = "Ludovick", LastName = "Nadeau", BirthDate = new DateTime(2005, 8, 4), Email = "bonhommebabs@gmail.com", TrainerId = 1, StartWeight = 210 });
+            builder.Entity<Customer>().HasData(new Customer() { Id = 4, FirstName = "Hedi", LastName = "Melo Cherni", BirthDate = new DateTime(2005, 10, 8), Email = "spookyeye@gmail.com", TrainerId = 2, StartWeight = 195 });
+
+
+
+            //Ajout de Seeds Objective
+
+            builder.Entity<Objective>().HasData(new Objective() { Id = 1, CustomerId = 1, Name = "Course", DistanceKm = 2, LostWeightKg = 5, AchievedDate = null });
+            builder.Entity<Objective>().HasData(new Objective() { Id = 2, CustomerId = 1, Name = "Perte de poids", DistanceKm = 15, LostWeightKg = 4, AchievedDate = null });
+            builder.Entity<Objective>().HasData(new Objective() { Id = 3, CustomerId = 1, Name = "Perte de poids", DistanceKm = 20, LostWeightKg = 10, AchievedDate = new DateTime(2023, 5, 10) });
+            builder.Entity<Objective>().HasData(new Objective() { Id = 4, CustomerId = 1, Name = "Course", DistanceKm = 10, LostWeightKg = 7, AchievedDate = new DateTime(2025, 6, 17) });
+
+            builder.Entity<Objective>().HasData(new Objective() { Id = 5, CustomerId = 2, Name = "Perte de poids", DistanceKm = 15, LostWeightKg = 10, AchievedDate = null });
+
+            builder.Entity<Objective>().HasData(new Objective() { Id = 6, CustomerId = 3, Name = "Perte de poids", DistanceKm = 1, LostWeightKg = 1, AchievedDate = new DateTime(2025, 7, 8) });
+            builder.Entity<Objective>().HasData(new Objective() { Id = 7, CustomerId = 3, Name = "Course", DistanceKm = 1, LostWeightKg = 2, AchievedDate = new DateTime(2024, 10, 11) });
+            builder.Entity<Objective>().HasData(new Objective() { Id = 8, CustomerId = 3, Name = "Course", DistanceKm = 3, LostWeightKg = 4, AchievedDate = new DateTime(2025, 1, 6) });
+
+            builder.Entity<Objective>().HasData(new Objective() { Id = 9, CustomerId = 4, Name = "Perte de poids", DistanceKm = 5, LostWeightKg = 7, AchievedDate = null });
+            builder.Entity<Objective>().HasData(new Objective() { Id = 10, CustomerId = 4, Name = "Course", DistanceKm = 2, LostWeightKg = 5, AchievedDate = new DateTime(2025, 9, 3) });
+
+
+
         }
     }
 }

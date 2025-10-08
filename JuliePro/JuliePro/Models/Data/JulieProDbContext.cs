@@ -14,6 +14,12 @@ namespace JuliePro.Models.Data
         public DbSet<Speciality> Specialities { get; set; }
         public DbSet<Trainer> Trainer { get; set; }
 
+        public DbSet<Customer> Customer { get; set; }
+
+        public DbSet<Objective> Objective { get; set; }
+
+        
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
